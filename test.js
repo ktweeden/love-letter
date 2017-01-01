@@ -1,5 +1,6 @@
 const cards = require("./game/cards.js")
-const Deck = require("./game/deck.js")
+const Game = require("./game/game.js")
 
-const newDeck = new Deck()
-console.log(newDeck.listOfCards)
+const newGame = new Game(2)
+
+console.log(JSON.stringify(newGame.playerList))

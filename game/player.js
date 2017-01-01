@@ -15,7 +15,7 @@ class Player {
         newHand.push(cardToRemove)
       }
     })
-    
+
     this._hand = newHand
   }
 
@@ -23,3 +23,5 @@ class Player {
     this._hand.push(card)
   }
 }
+
+module.exports = Player

@@ -7,6 +7,8 @@ class Card {
   get value() {
     return this._value
   }
+
+  playEffect(){}
 }
 
 class Princess extends Card {

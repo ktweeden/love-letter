@@ -1,6 +1,6 @@
-const cards = require("./cards.js")
-const pack = require("./pack.json")
-const _ = require("lodash")
+const cards = require('./cards.js')
+const pack = require('./pack.json')
+const _ = require('lodash')
 
 class Deck {
   constructor(){
@@ -18,6 +18,10 @@ class Deck {
 
   get listOfCards() {
     return this._listOfCards
+  }
+
+  removeTopCard() {
+    return this._listOfCards.pop()
   }
 }
 

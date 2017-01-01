@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Princess",
+    "cardCount": 1,
+    "value": 8
+  },
+  {
+    "name": "Countess",
+    "cardCount": 1,
+    "value": 7
+  },
+  {
+    "name": "King",
+    "cardCount": 1,
+    "value": 6
+  },
+  {
+    "name": "Prince",
+    "cardCount": 1,
+    "value": 5
+  },
+  {
+    "name": "Handmaid",
+    "cardCount": 2,
+    "value": 4
+  },
+  {
+    "name": "Baron",
+    "cardCount": 2,
+    "value": 3
+  },
+  {
+    "name": "Priest",
+    "cardCount": 2,
+    "value": 2
+  },
+  {
+    "name": "Guard",
+    "cardCount": 5,
+    "value": 1
+  }
+]

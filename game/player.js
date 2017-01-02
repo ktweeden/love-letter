@@ -1,9 +1,11 @@
+const _ = require('lodash')
 
 class Player {
   constructor(number) {
     this._hand = []
     this._discardPile = []
     this._playerId = number
+    this._playing = true
   }
 
   get hand() {
@@ -16,6 +18,16 @@ class Player {
 
   get playerId() {
     return this._playerId
+  }
+
+  get playing() {
+    return this._playing
+  }
+
+  set playing(status) {
+    if (_.isBoolean(status)) {
+      this._playing = status
+    }
   }
 
   removeCardFromHand(cardToRemove) {
@@ -36,6 +48,7 @@ class Player {
     this.removeCardFromHand(card)
     this._discardPile.push(card)
   }
+
 }
 
 module.exports = Player

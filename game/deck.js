@@ -10,6 +10,7 @@ class Deck {
         this._listOfCards.push(new cards[type.name]())
       }
     })
+    console.log(this._listOfCards)
   }
 
   shuffleDeck() {

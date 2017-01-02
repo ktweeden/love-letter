@@ -27,6 +27,16 @@ class Game {
     return this._playerList
   }
 
+  playerById(id) {
+    this.playerList.forEach((player) => {
+      let targetPlayer
+      if (player.playerId === id) {
+        targetPlayer = player
+      }
+      return targetPlayer
+    })
+  }
+
   playerTurn(player) {
     console.log(`before playing player ${player.playerId} hand is ${JSON.stringify(player.hand)}`)
     // pick the top card from the deck
@@ -38,7 +48,15 @@ class Game {
     player.discardCard(playerSelection)
     console.log(`after playing the player ${player.playerId} hand is ${JSON.stringify(player.hand)}`)
     // execute card action
-    playerSelection.playEffect()
+    if (playerSelection.requiresTarget === true) {
+      console.log(playerSelection)
+      let targetPlayer = this.playerList[Math.floor(Math.random() * this.playerList.length)]
+      console.log(`the target player is ${JSON.stringify(targetPlayer)}`)
+      if(targetPlayer === player) {
+        targetPlayer = this.playerList[Math.floor(Math.random() * this.playerList.length)]
+      }
+      playerSelection.playEffect(this, player, targetPlayer)
+    } else { playerSelection.playEffect(this, player) }
   }
 
 }

@@ -1,5 +1,5 @@
-const cards = require("./game/cards.js")
-const Game = require("./game/game.js")
+const cards = require('./game/cards.js')
+const Game = require('./game/game.js')
 
 const newGame = new Game(2)
 

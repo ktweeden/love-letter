@@ -3,17 +3,18 @@ const pack = require('./pack.json')
 const _ = require('lodash')
 
 class Deck {
-  constructor(){
+  constructor() {
     this._listOfCards = []
     pack.forEach((type) => {
-      for(let i=0; i < type.cardCount; i++) {
+      for (let i = 0; i < type.cardCount; i++) {
         this._listOfCards.push(new cards[type.name]())
       }
     })
   }
 
   shuffleDeck() {
-    return this._listOfCards = _.shuffle(this.listOfCards)
+    this._listOfCards = _.shuffle(this.listOfCards)
+    return this._listOfCards
   }
 
   get listOfCards() {

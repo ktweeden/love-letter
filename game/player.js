@@ -1,6 +1,6 @@
 
 class Player {
-  constructor(number){
+  constructor(number) {
     this._hand = []
     this._discardPile = []
     this._playerId = number
@@ -20,7 +20,7 @@ class Player {
 
   removeCardFromHand(cardToRemove) {
     const newHand = []
-    for (const card of this._hand){
+    for (const card of this._hand) {
       if (card !== cardToRemove) {
         newHand.push(cardToRemove)
       }
@@ -32,7 +32,7 @@ class Player {
     this._hand.push(card)
   }
 
-  discardCard(card){
+  discardCard(card) {
     this.removeCardFromHand(card)
     this._discardPile.push(card)
   }

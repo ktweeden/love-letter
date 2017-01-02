@@ -28,13 +28,13 @@ class Game {
   }
 
   playerById(id) {
-    this.playerList.forEach((player) => {
-      let targetPlayer
+    let targetPlayer
+    for (const player of this.playerList) {
       if (player.playerId === id) {
         targetPlayer = player
       }
-      return targetPlayer
-    })
+    }
+    return targetPlayer
   }
 
   playerTurn(player) {
@@ -49,12 +49,19 @@ class Game {
     console.log(`after playing the player ${player.playerId} hand is ${JSON.stringify(player.hand)}`)
     // execute card action
     if (playerSelection.requiresTarget === true) {
-      console.log(playerSelection)
+      console.log(`The player has selected ${JSON.stringify(playerSelection)}`)
       let targetPlayer = this.playerList[Math.floor(Math.random() * this.playerList.length)]
-      console.log(`the target player is ${JSON.stringify(targetPlayer)}`)
-      if(targetPlayer === player) {
+      console.log(`the target player is Player ${targetPlayer.playerId}`)
+      // TODO this is a bad check (is it curent player, is it a player that's out, is Handmaid player)
+      if (targetPlayer === player) {
         targetPlayer = this.playerList[Math.floor(Math.random() * this.playerList.length)]
+      } else if (targetPlayer.mostRecentlyPlayedCard() !== undefined) {
+        console.log(targetPlayer.mostRecentlyPlayedCard())
+        if (targetPlayer.mostRecentlyPlayedCard().is('Handmaid')) {
+          targetPlayer = this.playerList[Math.floor(Math.random() * this.playerList.length)]
+        }
       }
+      console.log(`the target player is Player ${targetPlayer.playerId}`)
       playerSelection.playEffect(this, player, targetPlayer)
     } else { playerSelection.playEffect(this, player) }
   }

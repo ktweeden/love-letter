@@ -13,6 +13,10 @@ class Card {
   }
 
   playEffect(game, currentPlayer) {}
+
+  is(name) {
+    return this._name === name
+  }
 }
 
 class Princess extends Card {
@@ -121,6 +125,7 @@ class Guard extends Card {
 
   playEffect(game, currentPlayer, targetPlayer) {
     const guess = 'Priest'
+    console.log(targetPlayer.hand[0])
     if (guess === targetPlayer.hand[0].name) {
       targetPlayer.playing = false
     }

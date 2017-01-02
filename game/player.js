@@ -6,6 +6,7 @@ class Player {
     this._discardPile = []
     this._playerId = number
     this._playing = true
+    // TODO make function which discards hand when playing is set to false
   }
 
   get hand() {
@@ -30,14 +31,12 @@ class Player {
     }
   }
 
+  mostRecentlyPlayedCard() {
+    return _.last(this._discardPile)
+  }
+
   removeCardFromHand(cardToRemove) {
-    const newHand = []
-    for (const card of this._hand) {
-      if (card !== cardToRemove) {
-        newHand.push(cardToRemove)
-      }
-    }
-    this._hand = newHand
+    this._hand = _.reject(this._hand, card => card === cardToRemove)
   }
 
   addCardToHand(card) {

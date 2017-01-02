@@ -4,7 +4,7 @@
   "description": "A JS implementation of the card game Love Letter",
   "main": "game/game.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Kate Preston",
   "license": "ISC",

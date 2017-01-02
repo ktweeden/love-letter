@@ -3,6 +3,9 @@ module.exports = {
     'plugins': [
         'import'
     ],
+    'env': {
+      'jest': true
+    },
     'rules': {
       'semi': 'off',
       'no-underscore-dangle': 'off',

@@ -2,8 +2,16 @@ const Game = require('./game/game.js')
 
 let numberOfPlayers = 4
 const newGame = new Game(numberOfPlayers)
-newGame.playerList.forEach(player => {
-  console.log(`before playing the player's hand is ${JSON.stringify(player.hand)}`)
-  newGame.playerTurn(player)
-  console.log(`after playing the player's hand is ${JSON.stringify(player.hand)}`)
-})
+
+let endgame = false
+//game play loop
+while (endgame === false) {
+  for(const player of newGame.playerList) {
+      newGame.playerTurn(player)
+      console.log(`The deck is ${newGame.gameDeck.listOfCards.length} cards long`)
+      if (newGame.gameDeck.listOfCards.length === 0){
+        endgame = true
+        break
+      }
+  }
+}

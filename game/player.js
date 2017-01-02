@@ -1,8 +1,9 @@
 
 class Player {
-  constructor(){
+  constructor(number){
     this._hand = []
     this._discardPile = []
+    this._playerId = number
   }
 
   get hand() {
@@ -11,6 +12,10 @@ class Player {
 
   get discardPile() {
     return this._discardPile
+  }
+
+  get playerId() {
+    return this._playerId
   }
 
   removeCardFromHand(cardToRemove) {

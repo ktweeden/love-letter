@@ -1,5 +1,6 @@
 const Player = require('./player.js')
 const Deck = require('./deck.js')
+const _ = require('lodash')
 
 class Game {
   constructor(playerNumber) {
@@ -28,13 +29,7 @@ class Game {
   }
 
   playerById(id) {
-    let targetPlayer
-    for (const player of this.playerList) {
-      if (player.playerId === id) {
-        targetPlayer = player
-      }
-    }
-    return targetPlayer
+    return _.find(this.playerList, player => player.playerId === id)
   }
 
   playerTurn(player) {

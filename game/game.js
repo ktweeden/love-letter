@@ -12,11 +12,12 @@ class Game {
     this._gameDeck = new Deck()
     // shuffle cards
     this._gameDeck.shuffleDeck()
-    // discard a card
-    this._gameDeck.removeTopCard()
+    // set card aside
+    this._discardPile = []
+    this._discardPile.push(this._gameDeck.removeTopCard())
     // deal one card per player
     this._playerList.forEach((player) => {
-      player.addCardToHand(this.gameDeck.removeTopCard())
+      player.addCardToHand(this._gameDeck.removeTopCard())
     })
   }
 
@@ -28,6 +29,10 @@ class Game {
     return this._playerList
   }
 
+  get discardPile() {
+    return this._discardPile
+  }
+
   playerById(id) {
     return _.find(this.playerList, player => player.playerId === id)
   }
@@ -35,7 +40,7 @@ class Game {
   playerTurn(player) {
     console.log(`before playing player ${player.playerId} hand is ${JSON.stringify(player.hand)}`)
     // pick the top card from the deck
-    player.addCardToHand(this.gameDeck.removeTopCard())
+    player.addCardToHand(this._gameDeck.removeTopCard())
     console.log(`during play the player ${player.playerId} hand is ${JSON.stringify(player.hand)}`)
     // choose a card to play
     const playerSelection = player.hand[Math.floor(Math.random() * 2)]

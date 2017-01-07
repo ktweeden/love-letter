@@ -67,12 +67,12 @@ class Prince extends Card {
   }
 
   playEffect(game, currentPlayer, targetPlayer) {
-    const targetHand = targetPlayer.hand[0]
-    targetPlayer.discardCard(targetHand)
-    if (targetHand.name === 'Princess') {
+    targetPlayer.discardCard(targetPlayer.hand[0])
+    if (targetPlayer.mostRecentlyPlayedCard().is('Princess')) {
       targetPlayer.playing = false
+    } else if (game.gameDeck.isEmpty()) {
+      targetPlayer.addCardToHand(game.discardPile.pop())
     } else { targetPlayer.addCardToHand(game.gameDeck.removeTopCard()) }
-    // TODO what happens if there are no cards left?
   }
 }
 
@@ -83,7 +83,7 @@ class Handmaid extends Card {
     this._value = 4
     this._requiresTarget = false
   }
-  // TODO check on playeffect is targetPlayer has Handmaid as top card
+  // TODO check on playeffect if targetPlayer has Handmaid as top card
 }
 
 class Baron extends Card {

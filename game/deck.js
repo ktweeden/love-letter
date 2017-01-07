@@ -25,6 +25,10 @@ class Deck {
   removeTopCard() {
     return this._listOfCards.pop()
   }
+
+  isEmpty() {
+    return this._listOfCards.length === 0
+  }
 }
 
 module.exports = Deck

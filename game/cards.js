@@ -54,7 +54,9 @@ class King extends Card {
 
   playEffect(game, currentPlayer, targetPlayer) {
     targetPlayer.addCardToHand(currentPlayer.hand.pop())
-    currentPlayer.addCardToHand(targetPlayer.removeCardFromHand(targetPlayer.hand[0]))
+    const cardToSwap = targetPlayer.hand[0]
+    currentPlayer.addCardToHand(cardToSwap)
+    targetPlayer.removeCardFromHand(targetPlayer.hand[0])
   }
 }
 

@@ -63,3 +63,11 @@ test('king play effect makes target payer and current player swap hands', () => 
   expect(player1._hand[0].name).toBe('Priest')
   expect(player2._hand[0].name).toBe('Guard')
 })
+
+test('Princess play effect makes current player .playing false', () => {
+  const testGame = new Game(2)
+  const player1 = testGame.playerById(1)
+  const princessCard = new cards.Princess()
+  princessCard.playEffect(testGame, player1)
+  expect(player1.playing).toBe(false)
+})

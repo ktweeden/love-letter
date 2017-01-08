@@ -56,7 +56,7 @@ class King extends Card {
     targetPlayer.addCardToHand(currentPlayer.hand.pop())
     const cardToSwap = targetPlayer.hand[0]
     currentPlayer.addCardToHand(cardToSwap)
-    targetPlayer.removeCardFromHand(targetPlayer.hand[0])
+    targetPlayer.removeCardFromHand(cardToSwap)
   }
 }
 
